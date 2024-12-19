@@ -1,20 +1,17 @@
 import { proxy, useSnapshot } from 'valtio'
 
-// Define the state interface
 interface State {
   count: number
   updates: string[]
   lastUpdateTime: string | null
 }
 
-// Create a proxy state with type annotation
 const state = proxy<State>({
   count: 0,
   updates: [],
   lastUpdateTime: null
 })
 
-// Type the mutation function
 const performBatchedUpdates = (): void => {
   // First mutation
   state.count += 1
